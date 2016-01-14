@@ -53,7 +53,7 @@ public class KafkaTopo {
 			System.out.println("=========================================cluster========================");
 		} else {
 			conf.setMaxTaskParallelism(4);
-//			//LocalCluster锟斤拷锟斤拷锟斤拷topology锟结交锟斤拷锟斤拷锟斤拷模锟斤拷锟斤拷锟斤拷锟叫ｏ拷锟斤拷锟姐开锟斤拷锟斤拷锟斤拷
+//			
 			LocalCluster cluster = new LocalCluster();
 			cluster.submitTopology("local-host", conf, builder.createTopology());
 //
