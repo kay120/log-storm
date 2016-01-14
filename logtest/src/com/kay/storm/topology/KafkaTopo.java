@@ -30,7 +30,7 @@ public class KafkaTopo {
 		spoutConfig.forceFromStart = true;
 		spoutConfig.scheme = new SchemeAsMultiScheme(new MessageScheme());
 		TopologyBuilder builder = new TopologyBuilder();
-		//����һ��spout������kaflka��Ϣ�����ж�ȡ��ݲ����͸���һ����bolt������˴��õ�spout��������Զ���ģ�����storm���Ѿ������õ�KafkaSpout
+		//KafkaSpout
 //		builder.setSpout("KafkaSpout", new KafkaSpout(spoutConfig));
 		spoutId = "accesslog";
 //		builder.setSpout(spoutId, new StormFileSpout());
@@ -47,13 +47,13 @@ public class KafkaTopo {
 		if (args != null && args.length > 0) {
 			
 			conf.setNumWorkers(4);
-			//�ύtopology��storm��Ⱥ������
+			//锟结交topology锟斤拷storm锟斤拷群锟斤拷锟斤拷锟斤拷
 			StormSubmitter.submitTopology("testtopo", conf,
 					builder.createTopology());
 			System.out.println("=========================================cluster========================");
 		} else {
 			conf.setMaxTaskParallelism(4);
-//			//LocalCluster������topology�ύ������ģ�������У����㿪������
+//			//LocalCluster锟斤拷锟斤拷锟斤拷topology锟结交锟斤拷锟斤拷锟斤拷模锟斤拷锟斤拷锟斤拷锟叫ｏ拷锟斤拷锟姐开锟斤拷锟斤拷锟斤拷
 			LocalCluster cluster = new LocalCluster();
 			cluster.submitTopology("local-host", conf, builder.createTopology());
 //
